@@ -36,7 +36,10 @@ def createRestaurant():
   database.db.session.add(newRestaurant)
   database.db.session.commit()
 
-  return make_response(jsonify({ "message": "User created Succesfully"}), 201)
+  return make_response(jsonify({ 
+    "message": "User created Succesfully",
+    "id": id,
+  }), 201)
 
 @restaurant.route('/', methods=['GET'])
 def getRestaurants():
