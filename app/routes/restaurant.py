@@ -131,7 +131,13 @@ def getInRadius():
 
   result = database.db.session.execute("SELECT count(id) as count, avg(rating) as avg, stddev(rating) as std FROM restaurant r WHERE ST_DWITHIN(r.location, ST_GeographyFromText('POINT(%s %s)'),%s);" % (args["latitude"], args["longitude"], args["radius"]))
 
-  for r in result:
-    print(r)
+  output = {}
 
-  return args
+  for row in result:
+    output = {
+      "count": row.count,
+      "avg": row.avg,
+      "std": row.std
+    }
+
+  return jsonify(output)
