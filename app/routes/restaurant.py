@@ -1,12 +1,11 @@
 from flask import Blueprint, request, jsonify, make_response
 import uuid
-from validation.statistics import StatsValidation
-from validation.restaurant import RestuarantValidation
-from models.restaurant import Restaurant
-from config.database import database
-from marshmallow import ValidationError
 from shapely import wkb
-from geoalchemy2 import func
+from marshmallow import ValidationError
+from app.validation.statistics import StatsValidation
+from app.validation.restaurant import RestuarantValidation
+from app.models.restaurant import Restaurant
+from app.config.database import database
 
 restaurant = Blueprint('restaurant', __name__)
 
@@ -108,11 +107,12 @@ def updateRestaurant(restaurant_id):
 
 @restaurant.route('/<restaurant_id>', methods=['DELETE'])
 def deleteRestaurant(restaurant_id):
-  restaurant = Restaurant.query.filter_by(id=restaurant_id)
+  restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
 
   if not restaurant:
     return make_response(jsonify({ "message": 'id doesnt correspond to a restaurant' }), 404)
 
+  print(restaurant)
   database.db.session.delete(restaurant)
   database.db.session.commit()
 

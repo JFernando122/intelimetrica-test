@@ -1,5 +1,5 @@
-from config.database import database
 from geoalchemy2 import Column, Geography
+from app.config.database import database
 
 class Restaurant(database.db.Model):
   id = database.db.Column(database.db.String(50), primary_key=True)
