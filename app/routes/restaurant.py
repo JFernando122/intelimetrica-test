@@ -115,7 +115,6 @@ def deleteRestaurant(restaurant_id):
   if not restaurant:
     return make_response(jsonify({ "message": 'id doesnt correspond to a restaurant' }), 404)
 
-  print(restaurant)
   database.db.session.delete(restaurant)
   database.db.session.commit()
 

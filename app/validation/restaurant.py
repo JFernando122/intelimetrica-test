@@ -1,7 +1,6 @@
 from marshmallow import Schema, fields, ValidationError
 
 def validateRating(value):
-  print(isinstance(value, int))
   if value < 0 or value > 4 or not isinstance(value, int):
     raise ValidationError('Rating must be an integer between 0 and 4')
 
