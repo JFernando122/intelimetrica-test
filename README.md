@@ -30,6 +30,10 @@ Restaurants (
 )
 """
 
+## Postman collection
+Here is a link to the postman collection but i should had sent a link in the email, and is also in the homepage of the app :)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/16648806-2ecdc7e3-c209-4a04-8e51-dba13c107294?action=collection%2Ffork&collection-url=entityId%3D16648806-2ecdc7e3-c209-4a04-8e51-dba13c107294%26entityType%3Dcollection%26workspaceId%3D50b20b5a-0b5c-4fba-bcdc-a60ff9dda517)
+
 ## Experiences during this challenge
 While i have previous experience with both making API's and with python i didn't have experience with the flask framework, all the previous API's i had worked with were in Nodejs with express
 
